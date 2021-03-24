@@ -10,6 +10,9 @@ Bot that calculates median price of any crypto-asset in fiat currency on Binance
 ```sh
 # Using npx
 npx binance-p2p-bot
+
+# Using npm
+npm binance-p2p-bot
 ```
 
 ## :cloud: Installation
