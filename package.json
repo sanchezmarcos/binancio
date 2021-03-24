@@ -1,5 +1,5 @@
 {
-  "name": "binance-p2p-cli",
+  "name": "binance-p2p-bot",
   "version": "0.0.1",
   "main": "index.js",
   "bin": "index.js",
