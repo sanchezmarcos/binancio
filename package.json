@@ -1,0 +1,33 @@
+{
+  "name": "binance-p2p-cli",
+  "version": "0.0.1",
+  "main": "index.js",
+  "bin": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sanchez Marcos",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanchezmarcos/binance-p2p.git"
+  },
+  "keywords": [
+    "binance",
+    "p2p",
+    "cli"
+  ],
+  "bugs": {
+    "url": "https://github.com/sanchezmarcos/binance-p2p/issues"
+  },
+  "homepage": "https://github.com/sanchezmarcos/binance-p2p#readme",
+  "description": "",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "inquirer": "^8.0.0",
+    "puppeteer": "^8.0.0"
+  }
+}
