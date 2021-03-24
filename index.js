@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const tickerIndexes = { USDT: 1, BTC: 2, BNB: 3, BUSD: 4, ETH: 5, DAI: 6 };
 const ANSWERS = require('./src/answers.js');
 const median = require('./src/median.js');
