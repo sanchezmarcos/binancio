@@ -13,7 +13,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sanchezmarcos/binance-p2p.git"
+    "url": "git+https://github.com/sanchezmarcos/binance-p2p-bot.git"
   },
   "keywords": [
     "binance",
@@ -21,9 +21,9 @@
     "cli"
   ],
   "bugs": {
-    "url": "https://github.com/sanchezmarcos/binance-p2p/issues"
+    "url": "https://github.com/sanchezmarcos/binance-p2p-bot/issues"
   },
-  "homepage": "https://github.com/sanchezmarcos/binance-p2p#readme",
+  "homepage": "https://github.com/sanchezmarcos/binance-p2p-bot#readme",
   "description": "",
   "dependencies": {
     "chalk": "^4.1.0",
