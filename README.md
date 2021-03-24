@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img width="100%" src="https://i.imgur.com/yIPmpyW.gif">
+  <img width="100%" src="https://i.imgur.com/weQHi1y.gif">
 </p>
 
 # Binance P2P Bot
