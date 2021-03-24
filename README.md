@@ -2,6 +2,10 @@
   <img height="300" src="https://i.imgur.com/TRzpcKW.png">
 </p>
 
+<p align="center">
+  <img height="450" src="https://i.imgur.com/P2kYyQl.gif">
+</p>
+
 # Binance P2P Bot
 Bot that calculates median price of any crypto-asset in fiat currency on Binance's p2p exchange without leaving your console.
 
