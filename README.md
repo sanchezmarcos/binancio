@@ -38,5 +38,10 @@ yarn global add binance-p2p-bot
 
 [MIT][license] © [Sanchez Marcos][site]
 
+
+<p align="center">
+  <img width="60%" src="https://i.imgur.com/EvaP4Ye.png">
+</p>
+
 [license]: /LICENSE
 [site]: https://sanchezmarcos.me
