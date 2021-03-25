@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="300" src="https://i.imgur.com/TRzpcKW.png">
+  <img height="300" src="https://i.imgur.com/wRLKZ7n.png">
 </p>
 
 <p align="center">
@@ -37,6 +37,11 @@ yarn global add binance-p2p-bot
 ## :scroll: License
 
 [MIT][license] © [Sanchez Marcos][site]
+
+
+<p align="center">
+  <img width="60%" src="https://i.imgur.com/EvaP4Ye.png">
+</p>
 
 [license]: /LICENSE
 [site]: https://sanchezmarcos.me
