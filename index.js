@@ -52,9 +52,6 @@ const log = console.log;
     log(`3️⃣  ${chalk.bold.underline(`Processed results \n`)}`);
     ui.updateBottomBar('');
     browser.close();
-
-    // console.log('value', value)
-
     log(`📉 ${chalk.grey('Minimun price')} 💵 ${chalk.bold(value[0].toLocaleString().replace(/,/g, '.'))}`);
     log(`🕛 ${chalk.grey('Median price')}  💵 ${chalk.bold(median(value).toLocaleString().replace(/,/g, '.'))}`);
     log(`📈 ${chalk.grey('Maximun price')} 💵 ${chalk.bold(value[value.length - 1].toLocaleString().replace(/,/g, '.'))}`);
