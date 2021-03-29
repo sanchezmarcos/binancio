@@ -19,7 +19,7 @@ const log = console.log;
 
   // Step 2
   log(`\n2️⃣  ${chalk.bold.underline(`Bot connecting to Binance \n`)}`);
-  const browser = await puppeteer.launch({ headless: true, defaultViewport: null, args: [`--window-size=1400,800`] });
+  const browser = await puppeteer.launch({ headless: false, defaultViewport: null, args: [`--window-size=1400,800`] });
   const ui = new inquirer.ui.BottomBar();
   const page = await browser.newPage();
   await page.goto('https://p2p.binance.com/en');
