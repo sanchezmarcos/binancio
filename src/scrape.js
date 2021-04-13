@@ -19,7 +19,7 @@ let scrape = async (page) => {
   let count = 0;
   let results = [];
   let firstScrap = true;
-  let paginationNext = await page.$$('main > div.css-16g55fu > div > div.css-kwfbf > div > button:last-child[disabled]');
+  let paginationNext = await page.$$('main > div.css-16g55fu > div > div.css-kwfbf > div > button[disabled]');
 
   while (paginationNext.length === 0 || firstScrap) {
     count++;
@@ -27,9 +27,9 @@ let scrape = async (page) => {
     await page.waitForTimeout(500);
     ui.updateBottomBar(`📄 ${chalk.bold(count)} ${chalk.grey(`${count > 1 ? 'pages indexed    ' : 'page indexed     '}`)} `);
     results = results.concat(await extractedEvaluateCall(page));
-    paginationNext = await page.$$('main > div.css-16g55fu > div > div.css-kwfbf > div > button:last-child[disabled]');
+    paginationNext = await page.$$('main > div.css-16g55fu > div > div.css-kwfbf > div > button[disabled]');
     (paginationNext.length > 0) ? log('✅ \n') : false;
-    await page.click('main > div.css-16g55fu > div > div.css-kwfbf > div > button:last-child');
+    await page.click('main > div.css-16g55fu > div > div.css-kwfbf > div > button');
   }
   return results;
 };
