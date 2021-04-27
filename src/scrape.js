@@ -6,9 +6,9 @@ const log = console.log;
 async function extractedEvaluateCall(page) {
   return page.evaluate(() => {
     let data = [];
-    let elements = document.querySelectorAll('main > div.css-16g55fu > div > div.css-vurnku > div');
+    let elements = document.querySelectorAll('main > div.css-16g55fu > div.css-cjwhpx > div.css-vurnku > div.css-79tjl5 > div.css-3um3kv > div.css-11db165 > div.css-4ptx7h > div.css-1kj0ifu');
     for (var element of elements) {
-      let price = element.childNodes[1].innerText.replace('\nARS', '').replace(/,/g, '').split('.')[0];
+      let price = element.childNodes[1].innerText;
       data.push(parseFloat(price));
     }
     return data;
