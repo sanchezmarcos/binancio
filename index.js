@@ -23,15 +23,14 @@ const log = console.log;
   const ui = new inquirer.ui.BottomBar();
   const page = await browser.newPage();
   await page.goto('https://p2p.binance.com/en');
-  await page.waitForSelector(`main > div.css-1u2nsrt > div > div > div.css-8f6za > div > div:nth-child(${tickerIndexes[answers.ticker]})`);
 
-  // Select ticker
-  ui.updateBottomBar(`📌 ${chalk.grey('Selecting crypto')} ${chalk.bold(answers.ticker)} `);
-  await page.click(`main > div.css-1u2nsrt > div > div > div.css-8f6za > div > div:nth-child(${tickerIndexes[answers.ticker]})`);
+  // Select type of exchange & ticker
+  ui.updateBottomBar(`📌 ${chalk.grey('Selecting crypto and exchange type')} ${chalk.bold(answers.operation)} @ ${chalk.bold(answers.ticker)} `);
+  await page.goto(`https://p2p.binance.com/en/trade/${answers.operation.toLowerCase()}/${answers.ticker.toLowerCase()}`);
   await page.waitForTimeout(1000);
   log('✅');
 
-  // Select fiat 
+  // Step 1 
   ui.updateBottomBar(`📌 ${chalk.grey('Selecting fiat  ')} ${chalk.bold(answers.fiat)} `);
   await page.waitForSelector('#C2Cfiatfilter_searhbox_fiat');
   await page.click('#C2Cfiatfilter_searhbox_fiat');
@@ -41,14 +40,8 @@ const log = console.log;
   await page.waitForTimeout(1000);
   log('✅');
 
-  // Select buy / sell
-  ui.updateBottomBar(`📌 ${chalk.grey('Selecting type  ')} ${chalk.bold(answers.operation)} `);
-  (answers.operation === 'Sell') ? await page.click('main > div.css-1u2nsrt > div > div > div.css-1yl7p9 > div > div.css-yxrkwa') : false;
-  await page.waitForTimeout(2000);
-  log('✅');
-
-  // Step 3 
-  scrape(page).then((value) => {
+  // Step 2
+  scrape(page).then((value) => {    
     log(`3️⃣  ${chalk.bold.underline(`Processed results \n`)}`);
     ui.updateBottomBar('');
     browser.close();

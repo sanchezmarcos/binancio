@@ -1,6 +1,6 @@
 {
   "name": "binance-p2p-bot",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "index.js",
   "bin": "index.js",
   "outDir": "./dist/",
