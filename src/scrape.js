@@ -25,7 +25,7 @@ let scrape = async (page) => {
     count++;
     firstScrap = false;
     await page.waitForTimeout(1000);
-    ui.updateBottomBar(`📄 ${chalk.bold(count)} ${chalk.grey(`${count > 1 ? 'pages indexed    ' : 'page indexed     '}`)} `);
+    ui.updateBottomBar(`📄  ${chalk.bold(count)} ${chalk.grey(`${count > 1 ? 'pages indexed     ' : 'page indexed     '}`)} `);
     results = results.concat(await extractedEvaluateCall(page));
     paginationNext = await page.$$('div.css-kwfbf > div button:last-child[disabled]');
     (paginationNext.length > 0) ? log('✅ \n') : false;
