@@ -1,42 +1,42 @@
 <p align="center">
-  <img width="70%" src="https://i.imgur.com/wRLKZ7n.png">
+  <img width="50%" src="https://i.imgur.com/wRLKZ7n.png">
 </p>
 
 <p align="center">
-  <img width="100%" src="https://i.imgur.com/weQHi1y.gif">
+  <img width="80%" src="https://i.imgur.com/weQHi1y.gif">
 </p>
 
 # Binance P2P Bot
+
 Binancio calculates median price of any crypto-asset in fiat currency on Binance's p2p exchange right on your console.
 
 ## :zap: Usage
 
 ```sh
 # Using npx
-npx binance-p2p-bot
-
-# Using npm
-binance-p2p-bot
+npx binancio
 ```
 
 ## :cloud: Installation
 
 ```sh
 # Using npm
-npm install -g binance-p2p-bot
+npm install -g binancio
 
 # Using yarn
-yarn global add binance-p2p-bot
+yarn global add binancio
 ```
 
 ## Roadmap
+
 - [x] Deprecate scrapper and use Binance Public API.
-- [] CLI Semantic API (eg. npx binancio --ticker ETH --fiat ARS --type BUY).
-- [] Save output in json format.
+- [ ] CLI Semantic API (eg. npx binancio --ticker ETH --fiat ARS --type BUY).
+- [ ] Save output in json format.
 
 Do you have something in mind? [Create an issue!](https://github.com/sanchezmarcos/binance-p2p-bot/issues/new)
 
 ## :package: Dependencies
+
 - [inquirer](https://github.com/SBoudrias/Inquirer.js) - Common interactive command line user interfaces
 - [chalk](https://github.com/chalk/chalk) - Terminal string styling done right
 
@@ -45,7 +45,7 @@ Do you have something in mind? [Create an issue!](https://github.com/sanchezmarc
 [MIT][license] © [Sanchez Marcos][site]
 
 <p align="center">
-  <img width="60%" src="https://i.imgur.com/EvaP4Ye.png">
+  <img width="50%" src="https://i.imgur.com/EvaP4Ye.png">
 </p>
 
 [license]: /LICENSE
