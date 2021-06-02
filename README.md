@@ -7,7 +7,7 @@
 </p>
 
 # Binance P2P Bot
-Bot that calculates median price of any crypto-asset in fiat currency on Binance's p2p exchange without leaving your console.
+Binancio calculates median price of any crypto-asset in fiat currency on Binance's p2p exchange right on your console.
 
 ## :zap: Usage
 
@@ -29,15 +29,20 @@ npm install -g binance-p2p-bot
 yarn global add binance-p2p-bot
 ```
 
+## Roadmap
+- [x] Deprecate scrapper and use Binance Public API.
+- [] CLI Semantic API (eg. npx binancio --ticker ETH --fiat ARS --type BUY).
+- [] Save output in json format.
+
+Do you have something in mind? [Create an issue!](https://github.com/sanchezmarcos/binance-p2p-bot/issues/new)
+
 ## :package: Dependencies
-- [puppeteer](https://github.com/puppeteer/puppeteer) - Headless Chrome Node.js API
-- [chalk](https://github.com/chalk/chalk) - Terminal string styling done right
 - [inquirer](https://github.com/SBoudrias/Inquirer.js) - Common interactive command line user interfaces
+- [chalk](https://github.com/chalk/chalk) - Terminal string styling done right
 
 ## :scroll: License
 
 [MIT][license] © [Sanchez Marcos][site]
-
 
 <p align="center">
   <img width="60%" src="https://i.imgur.com/EvaP4Ye.png">

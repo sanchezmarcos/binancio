@@ -4,11 +4,10 @@ const log = console.log;
 
 const introduction = () => {
   log(``);
-  log(` █▄▄ █ █▄░█ ▄▀█ █▄░█ █▀▀ █▀▀   █▀█ ▀█ █▀█   █▄▄ █▀█ ▀█▀`);
-  log(` █▄█ █ █░▀█ █▀█ █░▀█ █▄▄ ██▄   █▀▀ █▄ █▀▀   █▄█ █▄█ ░█░`);
-  log(chalk.hex('#f0b909')(` v${package.version} \n`))
-  log(chalk.grey(" Bot that calculates median price of any crypto-asset in fiat"));
-  log(chalk.grey(" currency on Binance's p2p exchange without leaving your console. \n"));
+  log(` █▄▄ █ █▄░█ ▄▀█ █▄░█ █▀▀ █ █▀█`);
+  log(` █▄█ █ █░▀█ █▀█ █░▀█ █▄▄ █ █▄█ ${chalk.hex('#f0b909').bold(`v${package.version}`)} \n`);
+  log(chalk.grey(" Hi! I am Binancio 👋  I can help you calculate the median price"));
+  log(chalk.grey(" of any cryptoasset in fiat money, right on your console.\n"));
 }
 
 module.exports = introduction;

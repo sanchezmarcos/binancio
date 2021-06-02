@@ -1,60 +1,89 @@
 #!/usr/bin/env node
-const tickerIndexes = { USDT: 1, BTC: 2, BNB: 3, BUSD: 4, ETH: 5, DAI: 6 };
-const ANSWERS = require('./src/answers.js');
-const median = require('./src/median.js');
-const scrape = require('./src/scrape.js');
-const introduction = require('./src/introduction.js');
-const puppeteer = require('puppeteer');
-const inquirer = require('inquirer');
-const chalk = require('chalk');
+const fetchP2PData = require("./src/fetchP2PData.js");
+const introduction = require("./src/introduction.js");
+const ANSWERS = require("./src/answers.js");
+const median = require("./src/median.js");
+const inquirer = require("inquirer");
+const chalk = require("chalk");
+const ROWS_PER_PAGE = 200;
 const log = console.log;
+let totalPrices = [];
 
 (async () => {
   // Introduction message
   introduction();
-  
+
   // Step 1
-  log(`1️⃣  ${chalk.bold.underline(`I have some questions in order to help you \n`)}`);
+  log(
+    `${chalk.hex("#ffd654")(`⌥`)} ${chalk
+      .hex("#f0b909")
+      .bold(`I have a few questions 🤔 \n`)}`
+  );
+
   const answers = await inquirer.prompt(ANSWERS);
 
   // Step 2
-  log(`\n2️⃣  ${chalk.bold.underline(`Wait while I log into binance to collect and analyze your query \n`)}`);
-  const browser = await puppeteer.launch({ headless: true, defaultViewport: null, args: [`--window-size=1400,800`] });
+  log(
+    `\n${chalk.hex("#ffd654")(`⌥`)} ${chalk
+      .hex("#f0b909")
+      .bold(`Collecting the data for you 🧐 \n`)}`
+  );
+
   const ui = new inquirer.ui.BottomBar();
-  const page = await browser.newPage();
-  await page.goto('https://p2p.binance.com/en');
+  (async () => {
+    totalPrices = [];
+    const firstPage = await fetchP2PData(
+      1,
+      answers.fiat,
+      answers.type,
+      answers.ticker
+    );
+    if (firstPage && firstPage.success) {
+      const totalPages = Math.ceil(firstPage.total / ROWS_PER_PAGE);
+      const pagesToRun = new Array(totalPages - 1).fill(null);
+      const totalElements = await pagesToRun.reduce(async (prev, _, idx) => {
+        const accData = await prev;
+        const page = idx + 2;
+        const pageResult = await fetchP2PData(
+          page,
+          answers.fiat,
+          answers.type,
+          answers.ticker
+        );
+        if (pageResult && pageResult.success) {
+          return [...accData, ...pageResult.data];
+        }
+        return accData;
+      }, Promise.resolve(firstPage.data));
+      totalElements.map((obj) => {
+        totalPrices.push(parseInt(obj.adv.price));
+      });
+    }
 
-  // Select type
-  ui.updateBottomBar(`📌  ${chalk.grey('Selecting type  ')} ${chalk.bold(answers.operation)} `);
-  log('✅');
-  
-  // Select ticker
-  ui.updateBottomBar(`📌  ${chalk.grey('Selecting crypto')} ${chalk.bold(answers.ticker)} `);
-  await page.goto(`https://p2p.binance.com/en/trade/${answers.operation.toLowerCase()}/${answers.ticker.toLowerCase()}`);
-  await page.waitForTimeout(1000);
-  log('✅');
-
-  // Step 1 
-  ui.updateBottomBar(`📌  ${chalk.grey('Selecting fiat  ')} ${chalk.bold(answers.fiat)} `);
-  await page.waitForSelector('#C2Cfiatfilter_searhbox_fiat');
-  await page.click('#C2Cfiatfilter_searhbox_fiat');
-  await page.waitForTimeout(1000);
-  await page.waitForSelector(`#${answers.fiat}`);
-  await page.click(`#${answers.fiat}`);
-  await page.waitForTimeout(1000);
-  log('✅');
-
-  // Step 2
-  scrape(page).then((value) => {    
-    log(`3️⃣  ${chalk.bold.underline(`Here are the results of your query \n`)}`);
-    ui.updateBottomBar('');
-    browser.close();
-    log(`📉  ${chalk.grey('Minimun price')} 💵 ${chalk.bold(value[0].toLocaleString().replace(/,/g, '.'))}`);
-    log(`🕛  ${chalk.grey('Median price')}  💵 ${chalk.bold(median(value).toLocaleString().replace(/,/g, '.'))}`);
-    log(`📈  ${chalk.grey('Maximun price')} 💵 ${chalk.bold(value[value.length - 1].toLocaleString().replace(/,/g, '.'))}`);
-    log(`🛍  ${chalk.grey('People offering')} ${chalk.bold(value.length.toLocaleString().replace(/,/g, '.'))} \n`);
-    log(`${chalk.grey('Sanchez Marcos')} © 2021`);
-    log(`${chalk.hex('#444')(`"Don't Trust, Verify"`)}`);
+    log(
+      `${chalk.hex("#ffd654")(`⌥`)} ${chalk
+        .hex("#f0b909")
+        .bold(`Here are the results! 🤓 \n`)}`
+    );
+    log(
+      `📉  ${chalk.grey("Minimun price")} 💵  ${chalk.bold(
+        totalPrices[0].toLocaleString()
+      )}`
+    );
+    log(
+      `🕛  ${chalk.grey("Median price")}  💵  ✨ ${chalk.bold(
+        median(totalPrices).toLocaleString()
+      )}✨`
+    );
+    log(
+      `📈  ${chalk.grey("Maximun price")} 💵  ${chalk.bold(
+        totalPrices[totalPrices.length - 1].toLocaleString()
+      )}`
+    );
+    log(
+      `🛍  ${chalk.grey("People offering")} ${chalk.bold(totalPrices.length)} \n`
+    );
+    // log(`Sanchez Marcos ${chalk.hex('#f0b909')('©')} 2021`);
     process.exit(0);
-  });
+  })();
 })();

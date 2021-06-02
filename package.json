@@ -1,6 +1,6 @@
 {
-  "name": "binance-p2p-bot",
-  "version": "0.0.10",
+  "name": "binancio",
+  "version": "1.0.0",
   "main": "index.js",
   "bin": "index.js",
   "outDir": "./dist/",
@@ -30,8 +30,7 @@
   "description": "",
   "dependencies": {
     "chalk": "^4.1.0",
-    "inquirer": "^8.0.0",
-    "puppeteer": "^8.0.0"
+    "inquirer": "^8.0.0"
   },
   "devDependencies": {
     "webpack": "^5.28.0",

@@ -2,7 +2,7 @@ const ANSWERS = [
   {
     type: 'list',
     name: 'ticker',
-    message: 'Select crypto',
+    message: 'Select cryptocurrency:',
     choices: [
       'USDT',
       'BTC',
@@ -15,7 +15,7 @@ const ANSWERS = [
   {
     type: 'list',
     name: 'fiat',
-    message: 'Select fiat',
+    message: 'Select fiat currency:',
     choices: [
       'ARS',
       'EUR',
@@ -83,7 +83,7 @@ const ANSWERS = [
   }, {
     type: 'list',
     name: 'operation',
-    message: 'Select exchange type',
+    message: 'Select exchange type:',
     choices: [
       'Buy',
       'Sell'
