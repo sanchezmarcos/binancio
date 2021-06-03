@@ -1,4 +1,4 @@
-const ANSWERS = [
+const QUESTIONS = [
   {
     type: 'list',
     name: 'ticker',
@@ -85,10 +85,10 @@ const ANSWERS = [
     name: 'operation',
     message: 'Select exchange type:',
     choices: [
-      'Buy',
-      'Sell'
+      'BUY',
+      'SELL'
     ]
   },
 ];
 
-module.exports = ANSWERS;
+module.exports = QUESTIONS;

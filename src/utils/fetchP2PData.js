@@ -1,5 +1,4 @@
 const https = require("https");
-const ROWS_PER_PAGE = 200;
 
 function fetchP2PData(
   page = 1,
@@ -10,7 +9,7 @@ function fetchP2PData(
   return new Promise((resolve, reject) => {
     const baseObj = {
       page,
-      rows: ROWS_PER_PAGE,
+      rows: 20,
       payTypes: [],
       publisherType: null,
       asset,
@@ -53,6 +52,8 @@ function fetchP2PData(
     req.write(stringData);
     req.end();
   });
+
+  thanks();
 }
 
 module.exports = fetchP2PData;
