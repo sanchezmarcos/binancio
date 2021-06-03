@@ -1,10 +1,4 @@
-<p align="center">
-  <img width="50%" src="https://i.imgur.com/wRLKZ7n.png">
-</p>
-
-<p align="center">
-  <img width="80%" src="https://i.imgur.com/weQHi1y.gif">
-</p>
+![Binancio - Binance P2P Bot](binancio.gif)
 
 # 🤖 Binancio - Binance P2P Bot
 

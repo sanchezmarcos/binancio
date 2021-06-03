@@ -15,7 +15,7 @@ const thanks = () => {
     )} \n`
   );
   log(`${chalk.bold("Thank you!")}`);
-  log(`Sanchez Marcos ${chalk.hex("#f0b909")("©")} Q2/2021 \n`);
+  log(`Sanchez Marcos ${chalk.hex("#f0b909")("©")} Q2/2021`);
   process.exit(0);
 };
 
