@@ -1,22 +1,40 @@
+const { hasUndefinedProp } = require("../src/utils/commandValidations.js");
 const fetchP2PData = require("./utils/fetchP2PData.js");
 const QUESTIONS = require("./constants/questions.js");
-const introduction = require("./introduction.js");
+const presentation = require("./presentation.js");
 const median = require("./utils/median.js");
 const thanks = require("./thanks.js");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const log = console.log;
 
-const interview = async () => {
-  introduction();
-  const answers = await inquirer.prompt(QUESTIONS);
+const interview = async (input = null) => {
   let totalPrices = [];
+  presentation();
+  const isInterview = hasUndefinedProp(input);
+
+  if (isInterview) {
+    log(
+      `${chalk.hex("#ffd654")(`⌥`)} ${chalk
+        .hex("#f0b909")
+        .bold(`I have a few questions`)}`
+    );
+  }
+
+  const answers = isInterview ? await inquirer.prompt(QUESTIONS) : input;
+
+  if (isInterview) {
+    log(' ');
+  }
 
   log(
-    `\n${chalk.hex("#ffd654")(`⌥`)} ${chalk
+    `${chalk.hex("#ffd654")(`⌥`)} ${chalk
       .hex("#f0b909")
       .bold(`Collecting data for you`)}`
   );
+
+  const ui = new inquirer.ui.BottomBar();
+  ui.updateBottomBar(`${chalk.grey(`🔍  Fetching page 1`)} \n`);
 
   const firstPage = await fetchP2PData(
     1,
@@ -31,6 +49,7 @@ const interview = async () => {
     const totalElements = await pagesToRun.reduce(async (prev, _, idx) => {
       const accData = await prev;
       const page = idx + 2;
+      ui.updateBottomBar(`${chalk.grey(`🔍  Fetching page ${page}/${totalPages}`)} \n`);
       const pageResult = await fetchP2PData(
         page,
         answers.fiat,

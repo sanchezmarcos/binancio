@@ -12,9 +12,30 @@ Binancio calculates median price of any crypto-asset in fiat currency on Binance
 
 ## :zap: Usage
 
+##### Interactive mode
+
 ```sh
-# Using npx
 npx binancio
+```
+
+##### Using custom options
+
+```sh
+npx binancio --ticker ETH --fiat USD --operation BUY
+```
+
+##### Overall options
+
+```sh
+npx binancio --help
+```
+
+```sh
+Options
+  -t, --ticker      <type> Crypto ticker (choices: "USDT", "BTC", "BNB", "BUSD", "ETH", "DAI")
+  -f, --fiat        <type> Fiat currency (choices: "ARS", "EUR", "USD", "AED", "AUD", "BDT", ...)
+  -o, --operation   <type> Operation type (choices: "BUY", "SELL")
+  -h, --help display help for command
 ```
 
 ## :cloud: Installation
@@ -30,7 +51,7 @@ yarn global add binancio
 ## Roadmap
 
 - [x] Deprecate scrapper and use Binance Public API.
-- [ ] CLI Semantic API (eg. npx binancio --ticker ETH --fiat ARS --type BUY).
+- [x] CLI Semantic API (eg. npx binancio --ticker ETH --fiat ARS --type BUY).
 - [ ] Save output in json format.
 
 Do you have something in mind? [Create an issue!](https://github.com/sanchezmarcos/binance-p2p-bot/issues/new)
@@ -38,6 +59,7 @@ Do you have something in mind? [Create an issue!](https://github.com/sanchezmarc
 ## :package: Dependencies
 
 - [inquirer](https://github.com/SBoudrias/Inquirer.js) - Common interactive command line user interfaces
+- [commander](https://github.com/tj/commander.js/) - Node.js command-line interfaces made easy
 - [chalk](https://github.com/chalk/chalk) - Terminal string styling done right
 
 ## :scroll: License
@@ -50,3 +72,4 @@ Do you have something in mind? [Create an issue!](https://github.com/sanchezmarc
 
 [license]: /LICENSE
 [site]: https://sanchezmarcos.me
+````
