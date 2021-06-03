@@ -1,4 +1,4 @@
-![Binancio - Binance P2P Bot](binancio.gif)
+<img width="100%" src="https://i.imgur.com/jlkb0KS.gif">
 
 # 🤖 Binancio - Binance P2P Bot
 
@@ -56,8 +56,10 @@ Do you have something in mind? [Create an issue!](https://github.com/sanchezmarc
 - [commander](https://github.com/tj/commander.js/) - Node.js command-line interfaces made easy
 - [chalk](https://github.com/chalk/chalk) - Terminal string styling done right
 
-## Support 
+## Support
+
 Ξ In case you want to support me, my ethereum address:
+
 ```
 0xaA48b4238C0fF0112977395B247C0341acB8809F
 ```
@@ -72,4 +74,7 @@ Do you have something in mind? [Create an issue!](https://github.com/sanchezmarc
 
 [license]: /LICENSE
 [site]: https://sanchezmarcos.me
-````
+
+```
+
+```
