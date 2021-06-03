@@ -8,7 +8,7 @@ const thanks = () => {
       .bold(`I hope I have been useful! `)}`
   );
 
-  log(`In case you want to support me, my ethereum address:`);
+  log(`In case you want to support me, here is my ethereum address:`);
   log(
     `${chalk.hex("#ffd654").bold("Ξ")} ${chalk.grey.bold(
       "0xaA48b4238C0fF0112977395B247C0341acB8809F"

@@ -56,6 +56,12 @@ Do you have something in mind? [Create an issue!](https://github.com/sanchezmarc
 - [commander](https://github.com/tj/commander.js/) - Node.js command-line interfaces made easy
 - [chalk](https://github.com/chalk/chalk) - Terminal string styling done right
 
+## Support 
+Ξ In case you want to support me, my ethereum address:
+```
+0xaA48b4238C0fF0112977395B247C0341acB8809F
+```
+
 ## :scroll: License
 
 [MIT][license] © [Sanchez Marcos][site]
