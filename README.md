@@ -74,7 +74,3 @@ Do you have something in mind? [Create an issue!](https://github.com/sanchezmarc
 
 [license]: /LICENSE
 [site]: https://sanchezmarcos.me
-
-```
-
-```
