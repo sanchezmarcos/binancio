@@ -58,7 +58,7 @@ Do you have something in mind? [Create an issue!](https://github.com/sanchezmarc
 
 ## Support
 
-Ξ In case you want to support me, my ethereum address:
+Ξ In case you want to support me, here is my ethereum address:
 
 ```
 0xaA48b4238C0fF0112977395B247C0341acB8809F
