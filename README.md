@@ -1,6 +1,6 @@
 <img width="100%" src="https://i.imgur.com/jlkb0KS.gif">
 
-# 🤖 Binancio - Binance P2P Bot
+# Binancio - Binance P2P Bot
 
 Binancio calculates median price of any crypto-asset in fiat currency on Binance's p2p exchange right on your console.
 
