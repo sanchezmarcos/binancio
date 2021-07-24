@@ -24,7 +24,7 @@ const interview = async (input = null) => {
   const answers = isInterview ? await inquirer.prompt(QUESTIONS) : input;
 
   if (isInterview) {
-    log(' ');
+    log(" ");
   }
 
   log(
@@ -49,7 +49,9 @@ const interview = async (input = null) => {
     const totalElements = await pagesToRun.reduce(async (prev, _, idx) => {
       const accData = await prev;
       const page = idx + 2;
-      ui.updateBottomBar(`${chalk.grey(`🔍  Fetching page ${page}/${totalPages}`)} \n`);
+      ui.updateBottomBar(
+        `${chalk.grey(`🔍  Fetching page ${page}/${totalPages}`)} \n`
+      );
       const pageResult = await fetchP2PData(
         page,
         answers.fiat,
@@ -65,6 +67,9 @@ const interview = async (input = null) => {
       totalPrices.push(parseInt(obj.adv.price));
     });
   }
+
+  const minimun = answers.operation === "SELL" ? totalPrices.length - 1 : 0;
+  const maximun = answers.operation === "SELL" ? 0 : totalPrices.length - 1;
 
   log(
     `🔗  ${chalk.grey("Transaction type")} ${chalk.bold(
@@ -84,7 +89,7 @@ const interview = async (input = null) => {
 
   log(
     `📉  ${chalk.grey("Minimun price")} 💵  ${chalk.bold(
-      totalPrices[0].toLocaleString()
+      totalPrices[minimun].toLocaleString()
     )}`
   );
 
@@ -96,7 +101,7 @@ const interview = async (input = null) => {
 
   log(
     `📈  ${chalk.grey("Maximun price")} 💵  ${chalk.bold(
-      totalPrices[totalPrices.length - 1].toLocaleString()
+      totalPrices[maximun].toLocaleString()
     )} \n`
   );
 
