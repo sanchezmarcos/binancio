@@ -57,7 +57,8 @@ const interview = async (input = null) => {
         page,
         answers.fiat,
         answers.operation,
-        answers.ticker
+        answers.ticker,
+        answers.payTypes ? [answers.payTypes] : []
       );
       if (pageResult && pageResult.success) {
         return [...accData, ...pageResult.data];
