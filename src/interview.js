@@ -41,7 +41,7 @@ const interview = async (input = null) => {
     answers.fiat,
     answers.operation,
     answers.ticker,
-    answers.payTypes ? answers.payTypes : []
+    answers.payTypes ? [answers.payTypes] : []
   );
 
   if (firstPage && firstPage.success) {
