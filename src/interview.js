@@ -65,7 +65,7 @@ const interview = async (input = null) => {
       return accData;
     }, Promise.resolve(firstPage.data));
     totalElements.map((obj) => {
-      totalPrices.push(parseInt(obj.adv.price));
+      totalPrices.push(parseFloat(obj.adv.price));
     });
   }
 
