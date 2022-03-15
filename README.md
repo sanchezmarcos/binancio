@@ -1,4 +1,4 @@
-<img width="100%" src="https://i.imgur.com/jlkb0KS.gif">
+  <img width="100%" src="https://i.imgur.com/jlkb0KS.gif">
 
 # Binancio - Binance P2P Bot
 
@@ -29,6 +29,7 @@ Options
   -t, --ticker      <type> Crypto ticker (choices: "USDT", "BTC", "BNB", "BUSD", "ETH", "DAI")
   -f, --fiat        <type> Fiat currency (choices: "ARS", "EUR", "USD", "AED", "AUD", "BDT", ...)
   -o, --operation   <type> Operation type (choices: "BUY", "SELL")
+  -p, --pay-types   <type> Payment method (choices: "*", "AirTM", "Bank Transfer" ...) [Depends on localization]
   -h, --help display help for command
 ```
 
