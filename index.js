@@ -6,6 +6,7 @@ const {
   validateTicker,
   validateFiat,
   validateOperation,
+  validatePayTypes,
 } = require("./src/utils/commandValidations.js");
 
 program
@@ -29,6 +30,13 @@ program
       "Operation type",
       validateOperation
     ).choices(QUESTIONS[2].choices)
+  )
+  .addOption(
+    new program.Option(
+      "-p, --pay-types <type>",
+      "payment method ",
+      validatePayTypes
+    ).choices(QUESTIONS[3].choices)
   );
 
 program.parse(process.argv);

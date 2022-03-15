@@ -40,7 +40,8 @@ const interview = async (input = null) => {
     1,
     answers.fiat,
     answers.operation,
-    answers.ticker
+    answers.ticker,
+    answers.payTypes ? [answers.payTypes] : []
   );
 
   if (firstPage && firstPage.success) {
@@ -56,7 +57,8 @@ const interview = async (input = null) => {
         page,
         answers.fiat,
         answers.operation,
-        answers.ticker
+        answers.ticker,
+        answers.payTypes ? [answers.payTypes] : []
       );
       if (pageResult && pageResult.success) {
         return [...accData, ...pageResult.data];
@@ -64,7 +66,7 @@ const interview = async (input = null) => {
       return accData;
     }, Promise.resolve(firstPage.data));
     totalElements.map((obj) => {
-      totalPrices.push(parseInt(obj.adv.price));
+      totalPrices.push(parseFloat(obj.adv.price));
     });
   }
 

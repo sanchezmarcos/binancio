@@ -4,17 +4,18 @@ function fetchP2PData(
   page = 1,
   fiat = "ARS",
   tradeType = "BUY",
-  asset = "USDT"
+  asset = "USDT",
+  payTypes = []
 ) {
   return new Promise((resolve, reject) => {
     const baseObj = {
       page,
       rows: 20,
-      payTypes: [],
       publisherType: null,
       asset,
       tradeType,
       fiat,
+      payTypes,
     };
 
     const stringData = JSON.stringify(baseObj);

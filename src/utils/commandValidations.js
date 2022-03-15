@@ -37,9 +37,18 @@ function validateOperation(operation) {
   return key;
 }
 
+function validatePayTypes(operation) {
+  const key = operation.toUpperCase();
+  if (QUESTIONS[3].choices.includes(key) === false) {
+    throw new InvalidOptionArgumentError("Not a valid payment type.");
+  }
+  return key;
+}
+
 module.exports = {
   hasUndefinedProp,
   validateTicker,
   validateOperation,
   validateFiat,
+  validatePayTypes,
 };
