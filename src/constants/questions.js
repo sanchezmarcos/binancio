@@ -10,7 +10,6 @@ const QUESTIONS = [
     name: "fiat",
     message: "Select fiat currency:",
     choices: [
-      "ARS",
       "EUR",
       "USD",
       "AED",

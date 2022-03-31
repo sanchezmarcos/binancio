@@ -30,6 +30,7 @@
   "homepage": "https://github.com/sanchezmarcos/binancio#readme",
   "description": "",
   "dependencies": {
+    "binancio": "^1.2.0",
     "chalk": "^4.1.0",
     "commander": "^8.0.0-1",
     "inquirer": "^8.0.0"
