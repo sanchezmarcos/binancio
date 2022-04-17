@@ -47,24 +47,23 @@ const interview = async (input = null) => {
   if (firstPage && firstPage.success) {
     const totalPages = Math.ceil(firstPage.total / 20);
     const pagesToRun = new Array(totalPages - 1).fill(null);
-    const totalElements = await pagesToRun.reduce(async (prev, _, idx) => {
-      const accData = await prev;
-      const page = idx + 2;
-      ui.updateBottomBar(
-        `${chalk.grey(`🔍  Fetching page ${page}/${totalPages}`)} \n`
-      );
-      const pageResult = await fetchP2PData(
-        page,
+    ui.updateBottomBar(
+      `${chalk.grey(`🔍  Fetching rest ${totalPages} pages`)} \n`
+    );
+    const requests = pagesToRun.map((_, index) => {
+      return fetchP2PData(
+        index + 2,
         answers.fiat,
         answers.operation,
         answers.ticker,
         answers.payTypes ? [answers.payTypes] : []
       );
-      if (pageResult && pageResult.success) {
-        return [...accData, ...pageResult.data];
-      }
-      return accData;
-    }, Promise.resolve(firstPage.data));
+    });
+    // Load all pages in parallel
+    const responses = await Promise.all(requests);
+    const totalElements = responses.reduce((acc, curr) => {
+      return [...acc, ...curr.data];
+    }, firstPage.data);
     totalElements.map((obj) => {
       totalPrices.push(parseFloat(obj.adv.price));
     });
