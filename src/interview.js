@@ -59,14 +59,17 @@ const interview = async (input = null) => {
         answers.payTypes ? [answers.payTypes] : []
       );
     });
-    // Load all pages in parallel
+    // Fetch rest pages in parallel
     const responses = await Promise.all(requests);
     const totalElements = responses.reduce((acc, curr) => {
       return [...acc, ...curr.data];
     }, firstPage.data);
-    totalElements.map((obj) => {
-      totalPrices.push(parseFloat(obj.adv.price));
-    });
+    totalElements
+      // Sort by price
+      .sort((a, b) => parseFloat(a.adv.price) - parseFloat(b.adv.price))
+      .map((obj) => {
+        totalPrices.push(parseFloat(obj.adv.price));
+      });
   }
 
   const minimun = answers.operation === "SELL" ? totalPrices.length - 1 : 0;
