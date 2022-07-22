@@ -90,7 +90,7 @@ const interview = async (input = null) => {
   );
 
   log(
-    `📉  ${chalk.grey("Minimun price")} 💵  ${chalk.bold(
+    `📉  ${chalk.grey("Minimum price")} 💵  ${chalk.bold(
       totalPrices[minimun].toLocaleString()
     )}`
   );
@@ -102,7 +102,7 @@ const interview = async (input = null) => {
   );
 
   log(
-    `📈  ${chalk.grey("Maximun price")} 💵  ${chalk.bold(
+    `📈  ${chalk.grey("Maximum price")} 💵  ${chalk.bold(
       totalPrices[maximun].toLocaleString()
     )} \n`
   );
