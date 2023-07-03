@@ -1,7 +1,8 @@
 const median = (arr) => {
-  const mid = Math.floor(arr.length / 2),
-    nums = arr.map(parseFloat).sort((a, b) => a - b);
-  return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+  const nums = arr.map(parseFloat).sort((a, b) => b - a); // Sort in descending order
+  const topTen = nums.slice(0, 10); // Get the top 10 largest numbers
+  const sum = topTen.reduce((acc, num) => acc + num, 0); // Calculate the sum of the top 10 numbers
+  return sum / topTen.length; // Calculate the average
 };
 
 module.exports = median;
